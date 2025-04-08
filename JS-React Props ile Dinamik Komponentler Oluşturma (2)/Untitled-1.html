@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kullanıcı Panosu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .kart {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .kart:hover {
+      transform: translateY(-4px);
+    }
+
+    .çevrimiçi {
+      color: green;
+      font-weight: bold;
+    }
+
+    .çevrimdışı {
+      color: red;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kullanıcı Panosu</h1>
+  <div id="panos"></div>
+
+  <script>
+    const kullanicilar = [
+      {
+        ad: "Yusuf Can Turhan",
+        yas: 20,
+        çevrimiçi: true,
+        hobiler: ["Bilgisayara Bakmak", "Yüzmek", "Kodlama"]
+      },
+      {
+        ad: "Elif Günal",
+        yas: 21,
+        çevrimiçi: false,
+        hobiler: ["Resim Yapmak", "Doğa Yürüyüşü", "Pasta Yapmak"]
+      },
+      {
+        ad: "Polat Can",
+        yas: 22,
+        çevrimiçi: true,
+        hobiler: ["Basketbol", "Oyun Oynamak", "Müzik Dinlemek"]
+      }
+    ];
+
+    const panos = document.getElementById("panos");
+
+    kullanicilar.forEach((kullanici, index) => {
+      const kart = document.createElement("div");
+      kart.className = "kart";
+
+      const baslik = document.createElement("h2");
+      baslik.textContent = `${kullanici.ad} - ${kullanici.yas} yaşında`;
+
+      const durum = document.createElement("p");
+      durum.textContent = kullanici.çevrimiçi ? "Çevrimiçi" : "Çevrimdışı";
+      durum.className = kullanici.çevrimiçi ? "çevrimiçi" : "çevrimdışı";
+
+      const buton = document.createElement("button");
+      buton.textContent = "Göster Detay";
+
+      const hobiListe = document.createElement("ul");
+      hobiListe.style.display = "none";
+      kullanici.hobiler.forEach(hobi => {
+        const li = document.createElement("li");
+        li.textContent = hobi;
+        hobiListe.appendChild(li);
+      });
+
+      buton.addEventListener("click", () => {
+        const acik = hobiListe.style.display === "block";
+        hobiListe.style.display = acik ? "none" : "block";
+        buton.textContent = acik ? "Göster Detay" : "Detayı Gizle";
+      });
+
+      kart.appendChild(baslik);
+      kart.appendChild(durum);
+      kart.appendChild(buton);
+      kart.appendChild(hobiListe);
+
+      panos.appendChild(kart);
+    });
+  </script>
+</body>
+</html>
