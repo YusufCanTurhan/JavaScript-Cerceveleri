@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f9fc;
+  color: #333;
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.kart {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.kart:hover {
+  transform: translateY(-5px);
+}
+
+.kart h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #34495e;
+}
+
+.çevrimiçi {
+  color: green;
+  font-weight: bold;
+}
+
+.çevrimdışı {
+  color: red;
+  font-weight: bold;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+ul {
+  padding-left: 1.2rem;
+  margin-top: 1rem;
+}
+
+li {
+  margin-bottom: 0.3rem;
+}
